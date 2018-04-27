@@ -1,4 +1,11 @@
 package com.company;
 
-public class Fruit extends Plant {
+public abstract class Fruit extends Plant {
+    public Fruit(String plantName, String plantingDate, int id) {
+        super(plantName, plantingDate, id);
+    }
+
+
+
+
 }
