@@ -69,6 +69,7 @@ public class Application {
 
             switch (choice) {
                 case 1:
+                    print10Lines();
                     openGardenMenu();
                     break;
                 case 5:
@@ -102,6 +103,7 @@ public class Application {
                     try {
                         System.out.print("Enter the new gardens name: ");
                         String newGardenName = in.nextLine();
+                        print10Lines();
                         createOrchardGarden(newGardenName, GardenSize.LARGE);
                         break;
                     } catch (DuplicateGardenNameException e) {
@@ -112,5 +114,11 @@ public class Application {
         }while (choice!=5);
 
         return;
+    }
+
+    private void print10Lines(){
+        for (int i = 0; i < 10; i++) {
+            System.out.println();
+        }
     }
 }
