@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public abstract class Garden {
     private String gardenName;
-    private GardenSize gardenSize;
 
+    private GardenSize gardenSize;
     private ArrayList<Plant> plantList;
 
     public Garden(String gardenName, GardenSize gardenSize ) {
-        this.gardenName = gardenName;
-        this.gardenSize = gardenSize;
+        setGardenName(gardenName);
+        setGardenSize(gardenSize);
         plantList = new ArrayList<>();
     }
 
@@ -22,6 +22,18 @@ public abstract class Garden {
 
     public ArrayList<Plant> getPlantList() {
         return plantList;
+    }
+
+    public void setGardenName(String gardenName) {
+        this.gardenName = gardenName;
+    }
+
+    public void setGardenSize(GardenSize gardenSize) {
+        this.gardenSize = gardenSize;
+    }
+
+    public void addPlant(Plant plant){
+        plantList.add(plant);
     }
 
 
