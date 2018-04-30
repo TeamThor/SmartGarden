@@ -7,7 +7,8 @@ import java.util.ArrayList;
 public abstract class Garden {
     private String gardenName;
     private GardenSize gardenSize;
-    ArrayList<Plant> plantList;
+
+    private ArrayList<Plant> plantList;
 
     public Garden(String gardenName, GardenSize gardenSize ) {
         this.gardenName = gardenName;
@@ -17,6 +18,10 @@ public abstract class Garden {
 
     public String getGardenName() {
         return gardenName;
+    }
+
+    public ArrayList<Plant> getPlantList() {
+        return plantList;
     }
 
 
