@@ -21,3 +21,9 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 SmartGarden/.idea/workspace.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/SmartGarden.iml
+.idea/vcs.xml
+.idea/workspace.xml
+SmartGarden/.idea/vcs.xml
