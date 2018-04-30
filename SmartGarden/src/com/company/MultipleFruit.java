@@ -5,18 +5,18 @@ public class MultipleFruit extends Fruit implements Waterable, Sprayable, Trimma
         super(plantName, plantingDate, id);
     }
 
-    @Override
-    public void water() {
+     @Override
+    public void spray(String date) {
 
     }
 
     @Override
-    public void spray() {
+    public void trim(String date) {
 
     }
 
     @Override
-    public void trim() {
+    public void water(String date) {
 
     }
 }
