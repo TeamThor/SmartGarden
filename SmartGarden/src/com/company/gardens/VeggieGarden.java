@@ -12,6 +12,16 @@ public class VeggieGarden extends Garden {
         
     }
 
-
+    @Override
+    public String toString() {
+        if (this.getGardenSize() == GardenSize.LARGE){
+            return String.format(" %s: Large Vegetable Garden", this.getGardenName());
+        }
+        else{
+            return this.getGardenSize()==GardenSize.MEDIUM?
+                    String.format(" %s: Medium Vegetable Garden", this.getGardenName()):
+                    String.format(" %s: Small Vegetable Garden", this.getGardenName());
+        }
+    }
 
 }

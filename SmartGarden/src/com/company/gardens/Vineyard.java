@@ -16,5 +16,15 @@ public class Vineyard extends Garden {
             getPlantList().add(new Vegetable(name, date, id));
     }
 
-
+    @Override
+    public String toString() {
+        if (this.getGardenSize() == GardenSize.LARGE){
+            return String.format(" %s: Large Vineyard", this.getGardenName());
+        }
+        else{
+            return this.getGardenSize()==GardenSize.MEDIUM?
+                    String.format(" %s: Medium Vineyard", this.getGardenName()):
+                    String.format(" %s: Small Vineyard", this.getGardenName());
+        }
+    }
 }

@@ -19,4 +19,16 @@ public class ConiferousGarden extends Garden implements TreeAddable, PlantDispla
     public void dipslayList() {
         getPlantList().forEach(System.out::print);
     }
+
+    @Override
+    public String toString() {
+        if (this.getGardenSize() == GardenSize.LARGE){
+            return String.format(" %s: Large Coniferous Garden", this.getGardenName());
+        }
+        else{
+            return this.getGardenSize()==GardenSize.MEDIUM?
+                    String.format(" %s: Medium Coniferous Garden", this.getGardenName()):
+                    String.format(" %s: Small Coniferous Garden", this.getGardenName());
+        }
+    }
 }

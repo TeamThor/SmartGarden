@@ -22,5 +22,16 @@ public class Orchard extends Garden implements TreeAddable,PlantDisplayable{
         getPlantList().forEach(System.out::print);
     }
 
+    @Override
+    public String toString() {
+        if (this.getGardenSize() == GardenSize.LARGE){
+            return String.format(" %s: Large Orchard Garden", this.getGardenName());
+        }
+        else{
+            return this.getGardenSize()==GardenSize.MEDIUM?
+                    String.format(" %s: Medium Orchard Garden", this.getGardenName()):
+                    String.format(" %s: Small Orchard Garden", this.getGardenName());
+        }
+    }
 
 }

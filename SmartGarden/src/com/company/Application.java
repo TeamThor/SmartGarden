@@ -47,7 +47,6 @@ public class Application {
 
     }
 
-
     public void startApplication(){
         Scanner in = new Scanner(System.in);
         int choice = 0;
@@ -71,6 +70,11 @@ public class Application {
                 case 1:
                     print10Lines();
                     openGardenMenu();
+                    break;
+                case 2:break;
+                case 3:break;
+                case 4:
+                    listAllGardens();
                     break;
                 case 5:
                     break;
@@ -114,6 +118,10 @@ public class Application {
         }while (choice!=5);
 
         return;
+    }
+
+    private void listAllGardens(){
+        gardens.forEach(System.out::println);
     }
 
     private void print10Lines(){
