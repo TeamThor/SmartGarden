@@ -6,9 +6,7 @@ import com.company.Vegetable;
 import java.util.ArrayList;
 
 public class Vineyard extends Garden {
-
-    ArrayList<Plant> plantList;
-    public Vineyard(String gardenName, GardenSize gardenSize) {
+        public Vineyard(String gardenName, GardenSize gardenSize) {
         super(gardenName, gardenSize);
         plantList = new ArrayList<>();
     }
