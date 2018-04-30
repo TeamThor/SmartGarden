@@ -12,14 +12,17 @@ public abstract class Plant {
     }
 
     public void setPlantName(String plantName) {
+
         this.plantName = plantName;
     }
 
     public void setPlantingDate(String plantingDate) {
+
         this.plantingDate = plantingDate;
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
@@ -29,6 +32,7 @@ public abstract class Plant {
     }
 
     public String getPlantingDate() {
+
         return plantingDate;
     }
 

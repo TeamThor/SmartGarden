@@ -1,5 +1,5 @@
 package com.company;
 
 public interface Harvestable {
-    public void harvest ();
+    public void harvest (String date);
 }

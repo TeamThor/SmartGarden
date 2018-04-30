@@ -1,5 +1,5 @@
 package com.company;
 
 public interface Sprayable {
-    public void spray();
+    public void spray(String date);
 }

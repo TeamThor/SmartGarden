@@ -12,6 +12,7 @@ public abstract class Garden {
     public Garden(String gardenName, GardenSize gardenSize ) {
         this.gardenName = gardenName;
         this.gardenSize = gardenSize;
+        plantList = new ArrayList<>();
     }
 
     public String getGardenName() {
