@@ -5,14 +5,13 @@ import com.company.Vegetable;
 
 import java.util.ArrayList;
 
-public class Vineyard extends Garden {
+public class Vineyard extends Garden implements PlantDisplayable {
         public Vineyard(String gardenName, GardenSize gardenSize) {
         super(gardenName, gardenSize);
 
     }
 
     public void addVeggie (String name, String date, int id){
-
             getPlantList().add(new Vegetable(name, date, id));
     }
 
@@ -26,5 +25,10 @@ public class Vineyard extends Garden {
                     String.format(" %s: Medium Vineyard", this.getGardenName()):
                     String.format(" %s: Small Vineyard", this.getGardenName());
         }
+    }
+
+    @Override
+    public void dipslayList() {
+        getPlantList().forEach(System.out::println);
     }
 }
