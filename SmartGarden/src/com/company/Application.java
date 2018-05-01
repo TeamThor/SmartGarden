@@ -68,10 +68,11 @@ public class Application {
 
             switch (choice) {
                 case 1:
-                    print10Lines();
-                    openGardenMenu();
+                    openCreateGardenMenu();
                     break;
-                case 2:break;
+                case 2:
+                    removeGardenMenu();
+                    break;
                 case 3:break;
                 case 4:
                     listAllGardens();
@@ -80,10 +81,9 @@ public class Application {
                     break;
             }
         }while (choice!=5);
-        return;
     }
 
-    private void openGardenMenu(){
+    private void openCreateGardenMenu(){
         Scanner in = new Scanner(System.in);
         int choice = 0;
 
@@ -107,7 +107,6 @@ public class Application {
                     try {
                         System.out.print("Enter the new gardens name: ");
                         String newGardenName = in.nextLine();
-                        print10Lines();
                         createOrchardGarden(newGardenName, GardenSize.LARGE);
                         break;
                     } catch (DuplicateGardenNameException e) {
@@ -116,17 +115,40 @@ public class Application {
                 case 5: break;
             }
         }while (choice!=5);
-
-        return;
     }
 
     private void listAllGardens(){
-        gardens.forEach(System.out::println);
+        for (int i=0; i<gardens.size(); i++) {
+            System.out.println((i+1)+". "+ gardens.get(i));
+        }
     }
 
     private void print10Lines(){
         for (int i = 0; i < 10; i++) {
             System.out.println();
+        }
+    }
+
+    private void removeGardenMenu(){
+        Scanner in = new Scanner(System.in);
+        listAllGardens();
+        System.out.println((gardens.size()+1) + ". Return to Main menu\n\n");
+
+        while (true){
+            System.out.print("Enter the No of the garden you want to remove -> ");
+            int choice = Integer.parseInt(in.nextLine());
+            System.out.println();
+
+            if (choice==gardens.size()+1){
+                break;
+            }
+            else if (choice<0||choice>=gardens.size()){
+                System.out.println("Garden with No " +choice+ " doesn't exist!");
+            }
+            else{
+                System.out.println(gardens.get(choice-1) + " has been removed.");
+                gardens.remove(choice-1);
+            }
         }
     }
 }
