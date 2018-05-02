@@ -144,7 +144,7 @@ public class Application {
                         createVineyardGarden(newGardenName, GardenSize.MEDIUM);
                         break;
                     } catch (DuplicateGardenNameException e) {
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                     }
                 case 2:
                     try {
@@ -153,7 +153,7 @@ public class Application {
                         createOrchardGarden(newGardenName, GardenSize.LARGE);
                         break;
                     } catch (DuplicateGardenNameException e) {
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                     }
                 case 5:
                     break;
