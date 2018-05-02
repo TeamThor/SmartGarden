@@ -188,7 +188,7 @@ public class Application {
 
             if (choice == gardens.size() + 1) {
                 break;
-            } else if (choice < 0 || choice >= gardens.size()) {
+            } else if (choice <= 0 || choice >gardens.size()+1) {
                 System.out.println("Garden with No " + choice + " doesn't exist!");
             } else {
                 System.out.println(gardens.get(choice - 1) + " has been removed.");
