@@ -166,7 +166,7 @@ public class Application {
 
     private void listAllGardens() {
         for (int i = 0; i < gardens.size(); i++) {
-            System.out.println((i + 1) + ". " + gardens.get(i));
+            System.out.println((i + 1) + ". " + gardens.get(i).getGardenName());
         }
     }
 
