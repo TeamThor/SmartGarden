@@ -205,10 +205,13 @@ public class Application {
                 "2. Coniferous tree\n",
                 "3. Single fruit plant\n",
                 "4. Multiple fruit plant\n",
-                "5. Vegetable",
+                "5. Vegetable\n",
                 "6. Exit\n\n"};
         int choice = 0;
         do {
+            for (String option : optionsList) {
+                System.out.print(option);
+            }
             System.out.print("Enter your choice -> ");
             choice = Integer.parseInt(in.nextLine());
             System.out.println();
@@ -219,9 +222,11 @@ public class Application {
                     String gardenName = in.nextLine();
                     System.out.print("Enter the trees name ->");
                     String treeName = in.nextLine();
+                    System.out.print("Enter the trees id ->");
+                    int treeId = Integer.parseInt(in.nextLine());
                     System.out.print("Enter the planting date(DD.MM.YYYY) ->");
                     String date = in.nextLine();
-                    addDeciduousTree(gardenName, treeName, date, 1, TreeHeight.AVEARAGE);
+                    addDeciduousTree(gardenName, treeName, date, treeId, TreeHeight.AVEARAGE);
                     break;
                 case 2:
                     break;
