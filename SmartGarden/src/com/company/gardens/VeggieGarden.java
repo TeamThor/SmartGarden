@@ -1,15 +1,26 @@
 package com.company.gardens;
 
 import com.company.Plant;
+import com.company.Vegetable;
 
 import java.util.ArrayList;
 
-public class VeggieGarden extends Garden {
+public class VeggieGarden extends Garden implements PlantDisplayable, VegetableAddable {
 
 
     public VeggieGarden(String gardenName, GardenSize gardenSize) {
         super(gardenName, gardenSize);
         
+    }
+
+    @Override
+    public void addVegetable(Vegetable vegetable){
+        getPlantList().add(vegetable);
+    }
+
+    @Override
+    public void dipslayList() {
+        getPlantList().forEach(System.out::print);
     }
 
     @Override

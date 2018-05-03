@@ -3,11 +3,10 @@ package com.company;
 import com.company.gardens.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class Application {
-        private ArrayList<Garden> gardens;
+    private ArrayList<Garden> gardens;
 
     public Application() {
         gardens = new ArrayList<>();
@@ -24,6 +23,7 @@ public class Application {
 
         }
     }
+
     public void createConiferousGarden(String name, GardenSize size) throws DuplicateGardenNameException {
 
         if (gardens.contains(new ConiferousGarden(name, size))) {
@@ -39,12 +39,20 @@ public class Application {
         if (gardens.contains(new Vineyard(name, size))) {
             throw new DuplicateGardenNameException("Vineyard with name " + name + " already exists.");
         } else {
-
             gardens.add(new Vineyard(name, size));
             System.out.println(name + " was created.");
-
         }
     }
+
+    public void createVegetableGarden(String name, GardenSize size) throws DuplicateGardenNameException {
+        if (gardens.contains(new VeggieGarden(name, size))) {
+            throw new DuplicateGardenNameException("Vegetable garden with name " + name + "already exists.");
+        } else {
+            gardens.add(new VeggieGarden(name, size));
+            System.out.printf("Vegetable garden %s was created", name);
+        }
+    }
+
 
     public void addDeciduousTree(String gardenName, String treeName, String plantingDate, int id, TreeHeight height) {
         DeciduousTree myTree = new DeciduousTree(treeName, plantingDate, id, height);
@@ -80,6 +88,24 @@ public class Application {
             }
         }
     }
+
+    public void addVegetable(String gardenName, String vegetableName, String plantingDate, int id) {
+        Vegetable newVeggie = new Vegetable(vegetableName, plantingDate, id);
+        for (Garden garden : gardens) {
+            if (garden.getGardenName().equals(gardenName)) {
+                if (garden instanceof VeggieGarden) {
+                    garden.addPlant(newVeggie);
+                    System.out.printf("%s was added to %s", vegetableName, gardenName);
+                } else {
+                    System.out.println("You can only add vegetables to Vegetable garden");
+                }
+                break;
+            } else {
+                System.out.println("There is no such Garden");
+            }
+        }
+    }
+
 
     public void startApplication() {
         Scanner in = new Scanner(System.in);
@@ -167,7 +193,7 @@ public class Application {
                             } else {
                                 System.out.println("Invalid size!\n");
                             }
-                        }while(!isValidSize);
+                        } while (!isValidSize);
                         createVineyardGarden(newGardenName, gSize);
                         break;
                     } catch (DuplicateGardenNameException e) {
@@ -198,7 +224,7 @@ public class Application {
                             } else {
                                 System.out.println("Invalid size!\nPlease enter SMALL, MEDIUM or LARGE");
                             }
-                        }while(!isValidSize);
+                        } while (!isValidSize);
                         createOrchardGarden(newGardenName, gSize);
                         break;
                     } catch (DuplicateGardenNameException e) {
@@ -206,35 +232,35 @@ public class Application {
                     }
                 case 4:
                     try {
-                    System.out.print("Enter the new gardens name: ");
-                    String newGardenName = in.nextLine();
-                    GardenSize gSize = GardenSize.SMALL;
-                    boolean isValidSize = false;
-                    do {
-                        System.out.print("Enter garden size (SMALL, MEDIUM, LARGE): ");
-                        String size = in.nextLine();
+                        System.out.print("Enter the new gardens name: ");
+                        String newGardenName = in.nextLine();
+                        GardenSize gSize = GardenSize.SMALL;
+                        boolean isValidSize = false;
+                        do {
+                            System.out.print("Enter garden size (SMALL, MEDIUM, LARGE): ");
+                            String size = in.nextLine();
 
-                        if (size.equalsIgnoreCase("medium")) {
-                            gSize = GardenSize.MEDIUM;
-                            isValidSize = true;
-                            break;
-                        } else if (size.equalsIgnoreCase("large")) {
-                            gSize = GardenSize.LARGE;
-                            isValidSize = true;
-                            break;
-                        } else if (size.equalsIgnoreCase("SMALL")) {
-                            gSize = GardenSize.SMALL;
-                            isValidSize = true;
-                            break;
-                        } else {
-                            System.out.println("Invalid size!\nPlease enter SMALL, MEDIUM or LARGE");
-                        }
-                    }while(!isValidSize);
-                    createConiferousGarden(newGardenName, gSize);
-                    break;
-                } catch (DuplicateGardenNameException e) {
-                    System.out.println(e.getMessage());
-                }
+                            if (size.equalsIgnoreCase("medium")) {
+                                gSize = GardenSize.MEDIUM;
+                                isValidSize = true;
+                                break;
+                            } else if (size.equalsIgnoreCase("large")) {
+                                gSize = GardenSize.LARGE;
+                                isValidSize = true;
+                                break;
+                            } else if (size.equalsIgnoreCase("SMALL")) {
+                                gSize = GardenSize.SMALL;
+                                isValidSize = true;
+                                break;
+                            } else {
+                                System.out.println("Invalid size!\nPlease enter SMALL, MEDIUM or LARGE");
+                            }
+                        } while (!isValidSize);
+                        createConiferousGarden(newGardenName, gSize);
+                        break;
+                    } catch (DuplicateGardenNameException e) {
+                        System.out.println(e.getMessage());
+                    }
                 case 5:
                     break;
                 default:
@@ -268,7 +294,7 @@ public class Application {
 
             if (choice == gardens.size() + 1) {
                 break;
-            } else if (choice <= 0 || choice >gardens.size()+1) {
+            } else if (choice <= 0 || choice > gardens.size() + 1) {
                 System.out.println("Garden with No " + choice + " doesn't exist!");
             } else {
                 System.out.println(gardens.get(choice - 1) + " has been removed.");
