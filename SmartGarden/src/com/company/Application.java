@@ -49,7 +49,7 @@ public class Application {
             throw new DuplicateGardenNameException("Vegetable garden with name " + name + "already exists.");
         } else {
             gardens.add(new VeggieGarden(name, size));
-            System.out.printf("Vegetable garden %s was created", name);
+            System.out.printf("Vegetable garden %s was created\n\n", name);
         }
     }
 
@@ -95,13 +95,13 @@ public class Application {
             if (garden.getGardenName().equals(gardenName)) {
                 if (garden instanceof VeggieGarden) {
                     garden.addPlant(newVeggie);
-                    System.out.printf("%s was added to %s", vegetableName, gardenName);
+                    System.out.printf("\n%s was added to the garden %s \n", vegetableName, gardenName);
                 } else {
-                    System.out.println("You can only add vegetables to Vegetable garden");
+                    System.out.println("\nYou can only add vegetables to Vegetable garden!\n");
                 }
                 break;
             } else {
-                System.out.println("There is no such Garden");
+                System.out.println("\nThere is no such Garden!\n");
             }
         }
     }
@@ -230,6 +230,37 @@ public class Application {
                     } catch (DuplicateGardenNameException e) {
                         System.out.println(e.getMessage());
                     }
+                case 3:
+                    try {
+                        System.out.print("Enter the new gardens name: ");
+                        String newGardenName = in.nextLine();
+                        GardenSize gSize = GardenSize.SMALL;
+                        boolean isValidSize = false;
+                        do {
+                            System.out.print("Enter garden size (SMALL, MEDIUM, LARGE): ");
+                            String size = in.nextLine();
+
+                            if (size.equalsIgnoreCase("medium")) {
+                                gSize = GardenSize.MEDIUM;
+                                isValidSize = true;
+                                break;
+                            } else if (size.equalsIgnoreCase("large")) {
+                                gSize = GardenSize.LARGE;
+                                isValidSize = true;
+                                break;
+                            } else if (size.equalsIgnoreCase("small")) {
+                                gSize = GardenSize.SMALL;
+                                isValidSize = true;
+                                break;
+                            } else {
+                                System.out.println("Invalid size!\nPlease enter SMALL, MEDIUM or LARGE");
+                            }
+                        } while (!isValidSize);
+                        createVegetableGarden(newGardenName, gSize);
+                        break;
+                    } catch (DuplicateGardenNameException e) {
+                        System.out.println(e.getMessage());
+                    }
                 case 4:
                     try {
                         System.out.print("Enter the new gardens name: ");
@@ -341,6 +372,15 @@ public class Application {
                 case 4:
                     break;
                 case 5:
+                    System.out.print("Enter the gardens name ->");
+                    gardenName = in.nextLine();
+                    System.out.print("Enter the vegetable name ->");
+                    String vegetableName = in.nextLine();
+                    System.out.print("Enter the vegetable id ->");
+                    int vegetableId = Integer.parseInt(in.nextLine());
+                    System.out.print("Enter the planting date(DD.MM.YYYY) ->");
+                    date = in.nextLine();
+                    addVegetable(gardenName, vegetableName, date, vegetableId);
                     break;
                 case 6:
                     break;
