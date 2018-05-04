@@ -14,13 +14,13 @@ public class DeciduousTree extends Tree implements Trimmable, Harvestable {
     @Override
     public void harvest(String date) {
         harvestDate = date;
-        System.out.format("%s, id: %d, Planting date: %s was harvest in %s",getPlantName(),getId(),getPlantingDate(),harvestDate);
+        System.out.format("%s, id: %d, Planting date: %s was harvest in %s\n",getPlantName(),getId(),getPlantingDate(),harvestDate);
     }
 
     @Override
     public void trim(String date) {
         trimDate = date;
-        System.out.format("%s, id: %d, Planting date: %s was trimmed in %s",getPlantName(),getId(),getPlantingDate(),trimDate);
+        System.out.format("%s, id: %d, Planting date: %s was trimmed in %s\n",getPlantName(),getId(),getPlantingDate(),trimDate);
     }
 
     @Override
