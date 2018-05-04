@@ -232,7 +232,7 @@ public class Application {
                     listPlants();
                     break;
                 case 6:
-                    break;
+                    return;
                 default:
                     System.out.println("Not a valid choice");
                     break;
