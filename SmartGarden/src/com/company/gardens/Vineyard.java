@@ -28,7 +28,7 @@ public class Vineyard extends Garden implements PlantDisplayable {
     }
 
     @Override
-    public void dipslayList() {
+    public void displayList() {
         getPlantList().forEach(System.out::println);
     }
 }

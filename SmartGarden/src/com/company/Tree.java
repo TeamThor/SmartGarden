@@ -10,6 +10,6 @@ public abstract class Tree extends Plant {
 
     @Override
     public String toString() {
-        return String.format("%s, id: %d, Planting Date: %s, height: %s",getPlantName(),getPlantingDate(),height);
+        return String.format("%s, id: %d, Planting Date: %s, height: %s",getPlantName(),getId(),getPlantingDate(),height);
     }
 }

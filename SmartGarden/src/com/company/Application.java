@@ -24,6 +24,18 @@ public class Application {
         }
     }
 
+    public void createFruitGarden(String name, GardenSize size) throws DuplicateGardenNameException {
+
+        if (gardens.contains(new FruitGarden(name, size))) {
+            throw new DuplicateGardenNameException("Garden with name " + name + " already exists.");
+        } else {
+
+            gardens.add(new FruitGarden(name, size));
+            System.out.println(name + " was created.");
+
+        }
+    }
+
     public void createConiferousGarden(String name, GardenSize size) throws DuplicateGardenNameException {
 
         if (gardens.contains(new ConiferousGarden(name, size))) {
@@ -56,23 +68,72 @@ public class Application {
 
     public void addDeciduousTree(String gardenName, String treeName, String plantingDate, int id, TreeHeight height) {
         DeciduousTree myTree = new DeciduousTree(treeName, plantingDate, id, height);
+        boolean isFound = false;
         for (int i = 0; i < gardens.size(); i++) {
             if (gardens.get(i).getGardenName().equals(gardenName)) {
                 if (gardens.get(i) instanceof Orchard) {
                     gardens.get(i).addPlant(myTree);
                     System.out.println(treeName + " was added to " + gardenName);
+                    isFound = true;
                 } else {
                     System.out.println("You can add DeciduousTree only to Garden of type Orchard");
+                    isFound  = true;
                 }
                 break;
-            } else {
-                System.out.println("There is no such Garden");
             }
+        }
+        if(!isFound){
+            System.out.println("There is no such Garden");
+        }
+
+    }
+
+
+    public void addConiferousTree(String gardenName, String treeName, String plantingDate, int id, TreeHeight height) {
+        ConiferousTree myTree = new ConiferousTree(treeName, plantingDate, id, height);
+        boolean isConferousGardenFound = false;
+        for (int i = 0; i < gardens.size(); i++) {
+            if (gardens.get(i).getGardenName().equals(gardenName)) {
+                isConferousGardenFound = true;
+                if (gardens.get(i) instanceof ConiferousGarden) {
+                    gardens.get(i).addPlant(myTree);
+                    System.out.println(treeName + " was added to " + gardenName);
+                    break;
+                } else {
+                    System.out.println("You can add ConiferousTree only to Garden of type ConiferousGarden");
+                }
+                break;
+            }
+        }
+        if(!isConferousGardenFound){
+            System.out.println("There is no such garden!");
+        }
+
+    }
+    public void addFruit(String gardenName, String fruitName, String plantingDate, int id) {
+        SingleFruit singleFruit = new SingleFruit(fruitName, plantingDate, id);
+        boolean isFruitGardenFound = false;
+
+        for (int i = 0; i < gardens.size(); i++) {
+            if (gardens.get(i).getGardenName().equals(gardenName)) {
+                isFruitGardenFound = true;
+                if (gardens.get(i) instanceof FruitGarden) {
+                    gardens.get(i).addPlant(singleFruit);
+                    System.out.println(singleFruit + " was added to " + gardenName);
+                } else {
+                    System.out.println("You can add SingleFrit only to Garden of type Fruit Garden");
+                }
+                break;
+            }
+        }
+        if(!isFruitGardenFound){
+            System.out.println("There is no such garden!");
         }
 
     }
 
     public void addGrapeVine(String gardenName, String vineName, String plantingDate, int id) {
+        //TODO fix search of a garden
         MultipleFruit newVine = new MultipleFruit(vineName, plantingDate, id);
         for (Garden garden : gardens) {
             if (garden.getGardenName().equals(gardenName)) {
@@ -92,6 +153,7 @@ public class Application {
     public void addVegetable(String gardenName, String vegetableName, String plantingDate, int id) {
         Vegetable newVeggie = new Vegetable(vegetableName, plantingDate, id);
         for (Garden garden : gardens) {
+            //TODO fix search of a garden
             if (garden.getGardenName().equals(gardenName)) {
                 if (garden instanceof VeggieGarden) {
                     garden.addPlant(newVeggie);
@@ -106,6 +168,32 @@ public class Application {
         }
     }
 
+    public void listPlants() {
+        Scanner scan = new Scanner(System.in);
+        int choice = 0;
+        boolean isValidGarden = false;
+        do {
+            System.out.print("Enter Garden: ");
+            String gardenName = scan.nextLine();
+            for (int i = 0; i < gardens.size(); i++) {
+                if (gardens.get(i).getGardenName().equals(gardenName)) {
+                    isValidGarden = true;
+                    if (gardens.get(i) instanceof PlantDisplayable) {
+                        ((PlantDisplayable) gardens.get(i)).displayList();
+                        break;
+
+                    }
+
+                }
+            }
+            if (!isValidGarden) {
+                System.out.println("Invalid Garden name! \n");
+            }
+
+
+        } while (!isValidGarden);
+        startApplication();
+    }
 
     public void startApplication() {
         Scanner in = new Scanner(System.in);
@@ -116,7 +204,8 @@ public class Application {
                 "2. Delete an existing garden\n",
                 "3. Add a plant to an existing garden\n",
                 "4. List all gardens\n",
-                "5. Exit\n\n",
+                "5. List plants of a given garden\n",
+                "6. Exit\n\n",
                 "Enter you choice -> "};
         do {
 
@@ -140,6 +229,9 @@ public class Application {
                     listAllGardens();
                     break;
                 case 5:
+                    listPlants();
+                    break;
+                case 6:
                     break;
                 default:
                     System.out.println("Not a valid choice");
@@ -157,7 +249,8 @@ public class Application {
                 "2. Create a new Orchard garden\n",
                 "3. Create a new Vegetable garden\n",
                 "4. Create a new Coniferous garden\n",
-                "5. Return to Main menu\n\n",
+                "5. Create a new Fruit garden\n",
+                "6. Return to Main menu\n\n",
                 "Enter you choice -> "};
 
         do {
@@ -293,12 +386,43 @@ public class Application {
                         System.out.println(e.getMessage());
                     }
                 case 5:
+                    try {
+                        System.out.print("Enter the new gardens name: ");
+                        String newGardenName = in.nextLine();
+                        GardenSize gSize = GardenSize.SMALL;
+                        boolean isValidSize = false;
+                        do {
+                            System.out.print("Enter garden size (SMALL, MEDIUM, LARGE): ");
+                            String size = in.nextLine();
+
+                            if (size.equalsIgnoreCase("medium")) {
+                                gSize = GardenSize.MEDIUM;
+                                isValidSize = true;
+                                break;
+                            } else if (size.equalsIgnoreCase("large")) {
+                                gSize = GardenSize.LARGE;
+                                isValidSize = true;
+                                break;
+                            } else if (size.equalsIgnoreCase("SMALL")) {
+                                gSize = GardenSize.SMALL;
+                                isValidSize = true;
+                                break;
+                            } else {
+                                System.out.println("Invalid size!\nPlease enter SMALL, MEDIUM or LARGE");
+                            }
+                        } while (!isValidSize);
+                        createFruitGarden(newGardenName, gSize);
+                        break;
+                    } catch (DuplicateGardenNameException e) {
+                        System.out.println(e.getMessage());
+                    }
+                case 6:
                     break;
                 default:
                     System.out.println("Not a valid choice");
                     break;
             }
-        } while (choice != 5);
+        } while (choice != 6);
     }
 
     private void listAllGardens() {
@@ -352,22 +476,92 @@ public class Application {
             System.out.print("Enter your choice -> ");
             choice = Integer.parseInt(in.nextLine());
             System.out.println();
+            String gardenName = "";
+            String treeName = "";
+            int treeId = 0;
+            String date = "";
+            TreeHeight treeHeight = TreeHeight.SHORT;
 
+            String height = "";
             switch (choice) {
                 case 1:
                     System.out.print("Enter the gardens name ->");
-                    String gardenName = in.nextLine();
+                    gardenName = in.nextLine();
                     System.out.print("Enter the trees name ->");
-                    String treeName = in.nextLine();
+                    treeName = in.nextLine();
                     System.out.print("Enter the trees id ->");
-                    int treeId = Integer.parseInt(in.nextLine());
+                    treeId = Integer.parseInt(in.nextLine());
                     System.out.print("Enter the planting date(DD.MM.YYYY) ->");
-                    String date = in.nextLine();
-                    addDeciduousTree(gardenName, treeName, date, treeId, TreeHeight.AVEARAGE);
+                    date = in.nextLine();
+                    boolean isValidHeight = false;
+                    do{
+                        System.out.print("Enter tree height (SHORT, AVERAGE, HIGH) :  ");
+                        height = in.nextLine();
+                        if(height.equalsIgnoreCase("short")){
+                            treeHeight = TreeHeight.SHORT;
+                            isValidHeight = true;
+                            break;
+                        }
+                        else if(height.equalsIgnoreCase("average")){
+                            treeHeight = TreeHeight.AVERAGE;
+                            isValidHeight = true;
+                            break;
+                        }
+                        else if(height.equalsIgnoreCase("High")){
+                            treeHeight = TreeHeight.HIGH;
+                            isValidHeight = true;
+                            break;
+                        }
+                        else{
+                            System.out.println("Invalid height!\n");
+                        }
+                    }while(!isValidHeight);
+                    addDeciduousTree(gardenName, treeName, date, treeId,treeHeight );
                     break;
                 case 2:
+                    System.out.print("Enter the gardens name ->");
+                    gardenName = in.nextLine();
+                    System.out.print("Enter the trees name ->");
+                    treeName = in.nextLine();
+                    System.out.print("Enter the trees id ->");
+                    treeId = Integer.parseInt(in.nextLine());
+                    System.out.print("Enter the planting date(DD.MM.YYYY) ->");
+                    date = in.nextLine();
+                    boolean isValidHeight2 = false;
+                    do{
+                        System.out.print("Enter tree height (SHORT, AVERAGE, HIGH) :  ");
+                        height = in.nextLine();
+                        if(height.equalsIgnoreCase("short")){
+                            treeHeight = TreeHeight.SHORT;
+                            isValidHeight2 = true;
+                            break;
+                        }
+                        else if(height.equalsIgnoreCase("average")){
+                            treeHeight = TreeHeight.AVERAGE;
+                            isValidHeight2 = true;
+                            break;
+                        }
+                        else if(height.equalsIgnoreCase("High")){
+                            treeHeight = TreeHeight.HIGH;
+                            isValidHeight2 = true;
+                            break;
+                        }
+                        else{
+                            System.out.println("Invalid height!\n");
+                        }
+                    }while(!isValidHeight2);
+                    addConiferousTree(gardenName, treeName, date, treeId,treeHeight );
                     break;
                 case 3:
+                    System.out.print("Enter the gardens name ->");
+                    gardenName = in.nextLine();
+                    System.out.print("Enter the fruit name ->");
+                    treeName = in.nextLine();
+                    System.out.print("Enter the trees id ->");
+                    treeId = Integer.parseInt(in.nextLine());
+                    System.out.print("Enter the planting date(DD.MM.YYYY) ->");
+                    date = in.nextLine();
+                    addFruit(gardenName, treeName, date, treeId);
                     break;
                 case 4:
                     break;

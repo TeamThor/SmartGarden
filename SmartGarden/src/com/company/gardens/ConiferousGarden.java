@@ -16,7 +16,7 @@ public class ConiferousGarden extends Garden implements TreeAddable, PlantDispla
 
 
     @Override
-    public void dipslayList() {
+    public void displayList() {
         getPlantList().forEach(System.out::print);
     }
 

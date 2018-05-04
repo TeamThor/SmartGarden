@@ -18,8 +18,8 @@ public class Orchard extends Garden implements TreeAddable,PlantDisplayable{
     }
 
     @Override
-    public void dipslayList() {
-        getPlantList().forEach(System.out::print);
+    public void displayList() {
+        getPlantList().forEach(System.out::println);
     }
 
     @Override
