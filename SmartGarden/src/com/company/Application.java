@@ -564,6 +564,7 @@ public class Application {
                     addFruit(gardenName, treeName, date, treeId);
                     break;
                 case 4:
+                    //TODO add multiple fruit function
                     break;
                 case 5:
                     System.out.print("Enter the gardens name ->");
