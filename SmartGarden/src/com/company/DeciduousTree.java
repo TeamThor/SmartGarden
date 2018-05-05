@@ -1,5 +1,8 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DeciduousTree extends Tree implements Trimmable, Harvestable {
     private String harvestDate;
     private String trimDate;
@@ -13,13 +16,17 @@ public class DeciduousTree extends Tree implements Trimmable, Harvestable {
 
     @Override
     public void harvest(String date) {
-        harvestDate = date;
+        SimpleDateFormat ft =
+                new SimpleDateFormat ("dd.MM.yyyy");
+        harvestDate = ft.format(new Date());
         System.out.format("%s, id: %d, Planting date: %s was harvest in %s\n",getPlantName(),getId(),getPlantingDate(),harvestDate);
     }
 
     @Override
     public void trim(String date) {
-        trimDate = date;
+        SimpleDateFormat ft =
+                new SimpleDateFormat ("dd.MM.yyyy");
+        trimDate = ft.format(new Date());
         System.out.format("%s, id: %d, Planting date: %s was trimmed in %s\n",getPlantName(),getId(),getPlantingDate(),trimDate);
     }
 

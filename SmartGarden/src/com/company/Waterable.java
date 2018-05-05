@@ -1,7 +1,7 @@
 package com.company;
 
 public interface Waterable {
-    public void water(String date);
+    public void water();
 
 
 }

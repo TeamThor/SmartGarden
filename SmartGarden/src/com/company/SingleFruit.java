@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 public class SingleFruit extends Fruit implements Waterable {
     private String waterDate;
 
@@ -8,9 +11,11 @@ public class SingleFruit extends Fruit implements Waterable {
         waterDate = "";
     }
     @Override
-    public void water(String date) {
-        waterDate = date;
-        System.out.println(getPlantName()+"was watered in "+date);
+    public void water() {
+        SimpleDateFormat ft =
+                new SimpleDateFormat ("dd.MM.yyyy");
+        waterDate = ft.format(new Date());;
+        System.out.println(getPlantName()+"was watered in "+waterDate);
     }
 
     @Override
