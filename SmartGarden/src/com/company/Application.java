@@ -272,7 +272,8 @@ public class Application {
                 "3. Add a plant to an existing garden\n",
                 "4. List all gardens\n",
                 "5. List plants of a given garden\n",
-                "6. Exit\n\n",
+                "6. Garden maintenance",
+                "7. Exit\n\n",
                 "Enter you choice -> "};
         do {
 
@@ -299,12 +300,15 @@ public class Application {
                     listPlants();
                     break;
                 case 6:
+                    maintainGarden();
+                    break;
+                case 7:
                     return;
                 default:
                     System.out.println("Not a valid choice");
                     break;
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
     private void openCreateGardenMenu() {
@@ -574,5 +578,43 @@ public class Application {
             }
         } while (!isValidSize);
         return gSize;
+    }
+
+    private void maintainGarden(){
+        Scanner in = new Scanner(System.in);
+
+        while (true){
+            System.out.print("Enter the name of the garden you wish to maintain -> ");
+            String gardenName = in.nextLine();
+            if (gardens.contains(new Orchard(gardenName,GardenSize.LARGE))) {
+                for (Garden garden: gardens) {
+                    if (garden.getGardenName().equals(gardenName)) {
+                        for (Plant plant: garden.getPlantList()) {
+                            if (plant instanceof SingleFruit){
+                                ((SingleFruit) plant).water();
+                            }
+                            if (plant instanceof MultipleFruit){
+                                ((MultipleFruit) plant).spray();
+                                ((MultipleFruit) plant).trim();
+                            }
+                            if (plant instanceof Vegetable){
+                                ((Vegetable) plant).water();
+                            }
+                            if (plant instanceof DeciduousTree){
+                                ((DeciduousTree) plant).harvest();
+                                ((DeciduousTree) plant).trim();
+                            }
+                            if (plant instanceof ConiferousTree){
+                                ((ConiferousTree) plant).spray();
+                            }
+                        }
+                    }
+                }
+                break;
+            }
+            else{
+                System.out.println("There isn't a garden with such name!");
+            }
+        }
     }
 }

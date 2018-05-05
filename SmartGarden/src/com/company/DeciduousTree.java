@@ -15,7 +15,7 @@ public class DeciduousTree extends Tree implements Trimmable, Harvestable {
 
 
     @Override
-    public void harvest(String date) {
+    public void harvest() {
         SimpleDateFormat ft =
                 new SimpleDateFormat ("dd.MM.yyyy");
         harvestDate = ft.format(new Date());
@@ -23,7 +23,7 @@ public class DeciduousTree extends Tree implements Trimmable, Harvestable {
     }
 
     @Override
-    public void trim(String date) {
+    public void trim() {
         SimpleDateFormat ft =
                 new SimpleDateFormat ("dd.MM.yyyy");
         trimDate = ft.format(new Date());
