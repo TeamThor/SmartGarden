@@ -206,6 +206,7 @@ public class Application {
                 if (garden instanceof Vineyard) {
                     garden.addPlant(newVine);
                     System.out.println(vineName + " was added to " + gardenName);
+                    System.out.println();
                 } else {
                     System.out.println("You can add grape vines only to Garden of type Vineyard");
                 }
@@ -244,15 +245,20 @@ public class Application {
         do {
             System.out.print("Enter Garden's Name: ");
             String gardenName = scan.nextLine();
+            System.out.println();
             for (int i = 0; i < gardens.size(); i++) {
                 if (gardens.get(i).getGardenName().equals(gardenName)) {
                     isValidGarden = true;
-                    if (gardens.get(i) instanceof PlantDisplayable) {
-                        ((PlantDisplayable) gardens.get(i)).displayList();
+
+                    if ((gardens.get(i)).getPlantList().size() < 1) {
+                        System.out.println("\nThere are no plants in this garden.\nYou can plant them by selecting the third option in the main menu.\n");
                         break;
-
+                    } else {
+                        if (gardens.get(i) instanceof PlantDisplayable) {
+                            ((PlantDisplayable) gardens.get(i)).displayList();
+                            break;
+                        }
                     }
-
                 }
             }
             if (!isValidGarden) {
@@ -286,7 +292,7 @@ public class Application {
 
             try {
                 choice = Integer.parseInt(in.nextLine());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please enter a number!");
                 continue;
             }
@@ -338,7 +344,7 @@ public class Application {
             }
             try {
                 choice = Integer.parseInt(in.nextLine());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please enter a number!");
                 continue;
             }
@@ -404,7 +410,7 @@ public class Application {
     }
 
     private void listAllGardens() {
-        if (gardens.size() < 1){
+        if (gardens.size() < 1) {
             System.out.println("\nThere are no gardens yet!");
             System.out.println("You can create a garden by selecting the second option in the main menu!\n");
         } else {
@@ -423,7 +429,7 @@ public class Application {
             System.out.print("Enter the № of the garden you want to remove -> ");
             try {
                 choice = Integer.parseInt(in.nextLine());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please enter a number!");
                 continue;
             }
@@ -457,7 +463,7 @@ public class Application {
             System.out.print("Enter your choice -> ");
             try {
                 choice = Integer.parseInt(in.nextLine());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please enter a number!");
                 continue;
             }
@@ -603,7 +609,7 @@ public class Application {
         Scanner in = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter the name of the garden you wish to maintain -> ");
+            System.out.print("Enter the name of the garden you wish to maintain ->\n");
             String gardenName = in.nextLine();
             if (gardens.contains(new Orchard(gardenName, GardenSize.LARGE))) {
                 for (Garden garden : gardens) {

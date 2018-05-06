@@ -16,6 +16,7 @@ public class ConiferousTree extends Tree implements Sprayable{
                 new SimpleDateFormat ("dd.MM.yyyy");
         sprayDate = ft.format(new Date());
         System.out.print(this + "was sprayed in "+sprayDate);
+        System.out.println();
     }
 
     @Override

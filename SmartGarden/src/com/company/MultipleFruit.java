@@ -18,7 +18,7 @@ public class MultipleFruit extends Fruit implements Sprayable, Trimmable {
         SimpleDateFormat ft =
                 new SimpleDateFormat ("dd.MM.yyyy");
         sprayDate = ft.format(new Date());
-        System.out.format("%s, id: %d, Spayed against pesticides at %s", getPlantName(), getId(), sprayDate);
+        System.out.format("%s, id: %d, Spayed against pesticides at %s\n", getPlantName(), getId(), sprayDate);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class MultipleFruit extends Fruit implements Sprayable, Trimmable {
         SimpleDateFormat ft =
                 new SimpleDateFormat ("dd.MM.yyyy");
         trimDate = ft.format(new Date());;
-        System.out.format("%s, id: %d, Trimmed at %s", getPlantName(), getId(), trimDate);
+        System.out.format("%s, id: %d, Trimmed at %s\n", getPlantName(), getId(), trimDate);
     }
 }

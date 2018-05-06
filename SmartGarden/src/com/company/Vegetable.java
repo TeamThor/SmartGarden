@@ -16,6 +16,6 @@ public class Vegetable extends Plant implements Waterable {
         SimpleDateFormat ft =
                 new SimpleDateFormat ("dd.MM.yyyy");
         waterDate = ft.format(new Date());
-        System.out.format("%s, id: %d, Watered at %s", getPlantName(), getId(), waterDate);
+        System.out.format("%s, id: %d, Watered at %s\n", getPlantName(), getId(), waterDate);
     }
 }

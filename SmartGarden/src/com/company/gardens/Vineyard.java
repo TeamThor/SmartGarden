@@ -1,18 +1,18 @@
 package com.company.gardens;
 
-import com.company.Plant;
-import com.company.Vegetable;
+import com.company.MultipleFruit;
 
-import java.util.ArrayList;
 
-public class Vineyard extends Garden implements PlantDisplayable {
+
+public class Vineyard extends Garden implements PlantDisplayable, GrapeVineAddable {
         public Vineyard(String gardenName, GardenSize gardenSize) {
         super(gardenName, gardenSize);
 
     }
 
-    public void addVeggie (String name, String date, int id){
-            getPlantList().add(new Vegetable(name, date, id));
+    @Override
+    public void addGrapeVine (MultipleFruit multipleFruit){
+            getPlantList().add(multipleFruit);
     }
 
     @Override

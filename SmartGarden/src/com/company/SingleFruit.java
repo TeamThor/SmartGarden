@@ -21,9 +21,9 @@ public class SingleFruit extends Fruit implements Waterable {
     @Override
     public String toString() {
         if (waterDate == "") {
-            return String.format("%s id:%d Planting Date:%s", getPlantName(), getId(), getPlantingDate());
+            return String.format("%s id:%d Planting Date:%s\n", getPlantName(), getId(), getPlantingDate());
         } else
-            return String.format("%s id:%d Planting Date:%s Last Water day: %s", getPlantName(), getId(), getPlantingDate(), waterDate);
+            return String.format("%s id:%d Planting Date:%s Last Water day: %s\n", getPlantName(), getId(), getPlantingDate(), waterDate);
     }
 
 }
