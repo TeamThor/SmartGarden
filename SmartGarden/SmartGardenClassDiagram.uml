@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.company.gardens.Garden</OriginalElement>
+  <nodes>
+    <node x="163.5" y="325.0">com.company.Waterable</node>
+    <node x="1095.900641025641" y="450.0">com.company.DeciduousTree</node>
+    <node x="1050.0833333333335" y="770.0">com.company.gardens.TreeAddable</node>
+    <node x="763.9006410256411" y="472.0">com.company.ConiferousTree</node>
+    <node x="0.0" y="1217.0">com.company.Application</node>
+    <node x="522.0" y="1053.0">com.company.gardens.Vineyard</node>
+    <node x="425.0166666666667" y="770.0">com.company.gardens.PlantDisplayable</node>
+    <node x="255.00000000000006" y="1053.0">com.company.gardens.VeggieGarden</node>
+    <node x="662.897435897436" y="325.0">com.company.Sprayable</node>
+    <node x="635.5" y="659.0">com.company.gardens.Garden</node>
+    <node x="996.3717948717949" y="302.0">com.company.Tree</node>
+    <node x="437.0" y="1217.0">com.company.TreeHeight</node>
+    <node x="509.90064102564105" y="461.0">com.company.MultipleFruit</node>
+    <node x="1065.0" y="1217.0">com.company.Nourishable</node>
+    <node x="354.25" y="0.0">com.company.Plant</node>
+    <node x="366.75" y="325.0">com.company.Fruit</node>
+    <node x="238.0" y="472.0">com.company.SingleFruit</node>
+    <node x="823.522435897436" y="325.0">com.company.Trimmable</node>
+    <node x="787.0" y="1053.0">com.company.gardens.ConiferousGarden</node>
+    <node x="589.0" y="1217.0">com.company.gardens.GardenSize</node>
+    <node x="0.0" y="1053.0">com.company.gardens.FruitGarden</node>
+    <node x="740.0" y="1217.0">com.company.DuplicateGardenNameException</node>
+    <node x="1308.5384615384614" y="325.0">com.company.Harvestable</node>
+    <node x="1076.0" y="1053.0">com.company.gardens.Orchard</node>
+    <node x="0.0" y="483.0">com.company.Vegetable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.company.gardens.Vineyard" target="com.company.gardens.Garden">
+      <point x="61.25" y="-59.5" />
+      <point x="705.75" y="1033.0" />
+      <point x="751.5" y="1033.0" />
+      <point x="0.0" y="137.0" />
+    </edge>
+    <edge source="com.company.gardens.VeggieGarden" target="com.company.gardens.PlantDisplayable">
+      <point x="-61.75" y="-59.5" />
+      <point x="316.75000000000006" y="1003.0" />
+      <point x="471.81666666666666" y="1003.0" />
+      <point x="-31.200000000000045" y="26.0" />
+    </edge>
+    <edge source="com.company.MultipleFruit" target="com.company.Trimmable">
+      <point x="78.0" y="-71.0" />
+      <point x="704.9006410256411" y="430.0" />
+      <point x="854.272435897436" y="430.0" />
+      <point x="-30.75" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.Orchard" target="com.company.gardens.TreeAddable">
+      <point x="72.0" y="-59.5" />
+      <point x="1256.0" y="953.0" />
+      <point x="1175.3333333333335" y="953.0" />
+      <point x="41.75" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.ConiferousGarden" target="com.company.gardens.PlantDisplayable">
+      <point x="-89.66666666666669" y="-59.5" />
+      <point x="831.8333333333334" y="993.0" />
+      <point x="534.2166666666667" y="993.0" />
+      <point x="31.200000000000045" y="26.0" />
+    </edge>
+    <edge source="com.company.Fruit" target="com.company.Plant">
+      <point x="0.0" y="-26.0" />
+      <point x="0.0" y="126.0" />
+    </edge>
+    <edge source="com.company.SingleFruit" target="com.company.Waterable">
+      <point x="-55.5" y="-60.0" />
+      <point x="293.5" y="430.0" />
+      <point x="261.0" y="430.0" />
+      <point x="32.5" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.FruitGarden" target="com.company.gardens.PlantDisplayable">
+      <point x="-58.75" y="-59.5" />
+      <point x="58.75" y="993.0" />
+      <point x="440.61666666666673" y="993.0" />
+      <point x="-62.39999999999998" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.ConiferousGarden" target="com.company.gardens.Garden">
+      <point x="0.0" y="-59.5" />
+      <point x="921.5" y="983.0" />
+      <point x="797.9000000000001" y="983.0" />
+      <point x="46.40000000000009" y="137.0" />
+    </edge>
+    <edge source="com.company.gardens.ConiferousGarden" target="com.company.gardens.TreeAddable">
+      <point x="89.66666666666669" y="-59.5" />
+      <point x="1011.1666666666667" y="1033.0" />
+      <point x="1091.8333333333335" y="1033.0" />
+      <point x="-41.75" y="26.0" />
+    </edge>
+    <edge source="com.company.Tree" target="com.company.Plant">
+      <point x="0.0" y="-49.0" />
+      <point x="1123.371794871795" y="277.0" />
+      <point x="533.4166666666667" y="277.0" />
+      <point x="71.66666666666674" y="126.0" />
+    </edge>
+    <edge source="com.company.Vegetable" target="com.company.Waterable">
+      <point x="54.5" y="-49.0" />
+      <point x="163.5" y="430.0" />
+      <point x="196.0" y="430.0" />
+      <point x="-32.5" y="26.0" />
+    </edge>
+    <edge source="com.company.DeciduousTree" target="com.company.Tree">
+      <point x="0.0" y="-82.0" />
+      <point x="1250.900641025641" y="430.0" />
+      <point x="1186.871794871795" y="430.0" />
+      <point x="63.5" y="49.0" />
+    </edge>
+    <edge source="com.company.gardens.Vineyard" target="com.company.gardens.PlantDisplayable">
+      <point x="-61.25" y="-59.5" />
+      <point x="583.25" y="1003.0" />
+      <point x="503.0166666666667" y="1003.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="com.company.MultipleFruit" target="com.company.Fruit">
+      <point x="-78.0" y="-71.0" />
+      <point x="548.9006410256411" y="430.0" />
+      <point x="509.25" y="430.0" />
+      <point x="47.5" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.VeggieGarden" target="com.company.gardens.Garden">
+      <point x="61.75" y="-59.5" />
+      <point x="440.25000000000006" y="1023.0" />
+      <point x="705.1000000000001" y="1023.0" />
+      <point x="-46.39999999999998" y="137.0" />
+    </edge>
+    <edge source="com.company.Vegetable" target="com.company.Plant">
+      <point x="-54.5" y="-49.0" />
+      <point x="54.5" y="430.0" />
+      <point x="110.39743589743603" y="430.0" />
+      <point x="110.39743589743603" y="277.0" />
+      <point x="390.08333333333337" y="277.0" />
+      <point x="-71.66666666666663" y="126.0" />
+    </edge>
+    <edge source="com.company.MultipleFruit" target="com.company.Sprayable">
+      <point x="0.0" y="-71.0" />
+      <point x="626.9006410256411" y="430.0" />
+      <point x="695.147435897436" y="430.0" />
+      <point x="-32.25" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.Orchard" target="com.company.gardens.Garden">
+      <point x="0.0" y="-59.5" />
+      <point x="1184.0" y="963.0" />
+      <point x="844.3000000000002" y="963.0" />
+      <point x="92.80000000000007" y="137.0" />
+    </edge>
+    <edge source="com.company.ConiferousTree" target="com.company.Sprayable">
+      <point x="-78.0" y="-60.0" />
+      <point x="841.9006410256411" y="420.0" />
+      <point x="759.647435897436" y="420.0" />
+      <point x="32.25" y="26.0" />
+    </edge>
+    <edge source="com.company.gardens.FruitGarden" target="com.company.gardens.Garden">
+      <point x="58.75" y="-59.5" />
+      <point x="176.25" y="1013.0" />
+      <point x="658.7" y="1013.0" />
+      <point x="-92.80000000000001" y="137.0" />
+    </edge>
+    <edge source="com.company.DeciduousTree" target="com.company.Trimmable">
+      <point x="-103.33333333333326" y="-82.0" />
+      <point x="1147.5673076923078" y="420.0" />
+      <point x="915.772435897436" y="420.0" />
+      <point x="30.75" y="26.0" />
+    </edge>
+    <edge source="com.company.ConiferousTree" target="com.company.Tree">
+      <point x="78.0" y="-60.0" />
+      <point x="997.9006410256411" y="430.0" />
+      <point x="1059.871794871795" y="430.0" />
+      <point x="-63.5" y="49.0" />
+    </edge>
+    <edge source="com.company.gardens.Orchard" target="com.company.gardens.PlantDisplayable">
+      <point x="-72.0" y="-59.5" />
+      <point x="1112.0" y="973.0" />
+      <point x="565.4166666666667" y="973.0" />
+      <point x="62.39999999999998" y="26.0" />
+    </edge>
+    <edge source="com.company.SingleFruit" target="com.company.Fruit">
+      <point x="55.5" y="-60.0" />
+      <point x="404.5" y="430.0" />
+      <point x="414.25" y="430.0" />
+      <point x="-47.5" y="26.0" />
+    </edge>
+    <edge source="com.company.DeciduousTree" target="com.company.Harvestable">
+      <point x="103.33333333333326" y="-82.0" />
+      <point x="1354.2339743589744" y="430.0" />
+      <point x="1378.0384615384614" y="430.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="485.0" y="1393.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
