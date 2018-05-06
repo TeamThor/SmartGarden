@@ -281,7 +281,12 @@ public class Application {
                 System.out.print(option);
             }
 
-            choice = Integer.parseInt(in.nextLine());
+            try {
+                choice = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("Please enter a number!");
+                continue;
+            }
 
             switch (choice) {
                 case 1:
@@ -328,8 +333,12 @@ public class Application {
             for (String option : optionsList) {
                 System.out.print(option);
             }
-            choice = Integer.parseInt(in.nextLine());
-            System.out.println();
+            try {
+                choice = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("Please enter a number!");
+                continue;
+            }
 
             switch (choice) {
                 case 1:
@@ -401,11 +410,15 @@ public class Application {
         Scanner in = new Scanner(System.in);
         listAllGardens();
         System.out.println((gardens.size() + 1) + ". Return to Main menu\n\n");
-
+        int choice;
         while (true) {
             System.out.print("Enter the No of the garden you want to remove -> ");
-            int choice = Integer.parseInt(in.nextLine());
-            System.out.println();
+            try {
+                choice = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("Please enter a number!");
+                continue;
+            }
 
             if (choice == gardens.size() + 1) {
                 break;
@@ -434,8 +447,12 @@ public class Application {
                 System.out.print(option);
             }
             System.out.print("Enter your choice -> ");
-            choice = Integer.parseInt(in.nextLine());
-            System.out.println();
+            try {
+                choice = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("Please enter a number!");
+                continue;
+            }
             String gardenName = "";
             String treeName = "";
             int treeId = 0;
