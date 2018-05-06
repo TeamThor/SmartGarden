@@ -93,7 +93,7 @@ public class Application {
     public void createFruitGarden(String name, GardenSize size) throws DuplicateGardenNameException {
 
         if (gardens.contains(new FruitGarden(name, size))) {
-            throw new DuplicateGardenNameException("Garden with name " + name + " already exists.");
+            throw new DuplicateGardenNameException("\nGarden with name " + name + " already exists.");
         } else {
 
             gardens.add(new FruitGarden(name, size));
@@ -105,7 +105,7 @@ public class Application {
     public void createConiferousGarden(String name, GardenSize size) throws DuplicateGardenNameException {
 
         if (gardens.contains(new ConiferousGarden(name, size))) {
-            throw new DuplicateGardenNameException("Garden with name " + name + " already exists.");
+            throw new DuplicateGardenNameException("\nGarden with name " + name + " already exists.");
         } else {
             gardens.add(new ConiferousGarden(name, size));
             System.out.println(name + " was created.");
@@ -115,7 +115,7 @@ public class Application {
 
     public void createVineyardGarden(String name, GardenSize size) throws DuplicateGardenNameException {
         if (gardens.contains(new Vineyard(name, size))) {
-            throw new DuplicateGardenNameException("Vineyard with name " + name + " already exists.");
+            throw new DuplicateGardenNameException("\nVineyard with name " + name + " already exists.");
         } else {
             gardens.add(new Vineyard(name, size));
             System.out.println(name + " was created.");
@@ -124,10 +124,10 @@ public class Application {
 
     public void createVegetableGarden(String name, GardenSize size) throws DuplicateGardenNameException {
         if (gardens.contains(new VeggieGarden(name, size))) {
-            throw new DuplicateGardenNameException("Vegetable garden with name " + name + "already exists.");
+            throw new DuplicateGardenNameException("\nVegetable garden with name " + name + "already exists.");
         } else {
             gardens.add(new VeggieGarden(name, size));
-            System.out.printf("Vegetable garden %s was created\n\n", name);
+            System.out.printf("\nVegetable garden %s was created\n\n", name);
         }
     }
 
@@ -242,7 +242,7 @@ public class Application {
         int choice = 0;
         boolean isValidGarden = false;
         do {
-            System.out.print("Enter Garden: ");
+            System.out.print("Enter Garden's Name: ");
             String gardenName = scan.nextLine();
             for (int i = 0; i < gardens.size(); i++) {
                 if (gardens.get(i).getGardenName().equals(gardenName)) {
@@ -256,7 +256,8 @@ public class Application {
                 }
             }
             if (!isValidGarden) {
-                System.out.println("Invalid Garden name! \n");
+                System.out.println("Invalid Garden name!\nYou can check the existing gardens in the list below: \n");
+                listAllGardens();
             }
 
 
@@ -403,8 +404,13 @@ public class Application {
     }
 
     private void listAllGardens() {
-        for (int i = 0; i < gardens.size(); i++) {
-            System.out.println((i + 1) + ". " + gardens.get(i));
+        if (gardens.size() < 1){
+            System.out.println("\nThere are no gardens yet!");
+            System.out.println("You can create a garden by selecting the second option in the main menu!\n");
+        } else {
+            for (int i = 0; i < gardens.size(); i++) {
+                System.out.println((i + 1) + ". " + gardens.get(i));
+            }
         }
     }
 
@@ -414,7 +420,7 @@ public class Application {
         System.out.println((gardens.size() + 1) + ". Return to Main menu\n\n");
         int choice;
         while (true) {
-            System.out.print("Enter the No of the garden you want to remove -> ");
+            System.out.print("Enter the № of the garden you want to remove -> ");
             try {
                 choice = Integer.parseInt(in.nextLine());
             } catch (NumberFormatException e){
@@ -425,7 +431,7 @@ public class Application {
             if (choice == gardens.size() + 1) {
                 break;
             } else if (choice <= 0 || choice > gardens.size() + 1) {
-                System.out.println("Garden with No " + choice + " doesn't exist!");
+                System.out.println("Garden with № " + choice + " doesn't exist!");
             } else {
                 System.out.println(gardens.get(choice - 1) + " has been removed.");
                 gardens.remove(choice - 1);
