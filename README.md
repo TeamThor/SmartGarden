@@ -6,13 +6,13 @@ SmartGarden is a console application for managing gardens developed by team Thor
 
 User starts the application
 The Main Menu opens and allows the user to choose one out of 7 options:
-  *Creating a new garden
-  *Deleting an existing garden
-  *Adding a plants to an existing garden
-  *List all gardens
-  *List all plants in a garden by choice
-  *Maintain a garden by choice
-  *Exit
+  * Creating a new garden
+  * Deleting an existing garden
+  * Adding a plants to an existing garden
+  * List all gardens
+  * List all plants in a garden by choice
+  * Maintain a garden by choice
+  * Exit
   
 ### Creating a new garden
 
