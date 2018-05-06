@@ -48,4 +48,5 @@ The user chooses a garden after that the application lists all the maintenance i
 ### Exit
 
 Exits the application.
+
 ----------------------------------------------------------------------------------------------------------------------------------------
