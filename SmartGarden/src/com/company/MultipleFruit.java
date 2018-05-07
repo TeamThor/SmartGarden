@@ -28,4 +28,11 @@ public class MultipleFruit extends Fruit implements Sprayable, Trimmable {
         trimDate = ft.format(new Date());;
         System.out.format("%s, id: %d, Trimmed at %s\n", getPlantName(), getId(), trimDate);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s id:%d Planting Date:%s \n", getPlantName(), getId(), getPlantingDate());
+    }
+
+
 }

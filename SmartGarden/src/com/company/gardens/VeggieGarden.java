@@ -20,7 +20,7 @@ public class VeggieGarden extends Garden implements PlantDisplayable, VegetableA
 
     @Override
     public void displayList() {
-        getPlantList().forEach(System.out::print);
+        getPlantList().forEach(System.out::println);
     }
 
     @Override
