@@ -181,7 +181,7 @@ public class Application {
         do {
             if (gardens.size() < 1) {
                 System.out.println("\nThere are no gardens yet!");
-                System.out.println("You can create a garden by selecting the second option in the main menu!\n");
+                System.out.println("You can create a garden by selecting the first option in the main menu!\n");
                 break;
             }
             System.out.print("Enter Garden's Name: ");
@@ -370,10 +370,10 @@ public class Application {
 
         } else {
             listAllGardens();
-            System.out.println((gardens.size() + 1) + ". Return to Main menu\n\n");
+            System.out.println((gardens.size() + 1) + ". Return to Main menu\n");
             int choice;
             while (true) {
-                System.out.print("Enter the № of the garden you want to remove -> ");
+                System.out.print("Please select an option from the above -> \n");
                 try {
                     choice = Integer.parseInt(in.nextLine());
                 } catch (NumberFormatException e) {
@@ -574,7 +574,7 @@ public class Application {
                 for (Garden garden : gardens) {
                     if (garden.getGardenName().equals(gardenName)) {
                         if (garden.getPlantList().size() == 0) {
-                            System.out.println("There are no plants in this garden");
+                            System.out.println("\nThere are no plants in this garden.\nYou can plant them by selecting the third option in the main menu.\n");
                             break;
                         }
                         for (Plant plant : garden.getPlantList()) {
