@@ -14,70 +14,6 @@ public class Application {
         gardens = new ArrayList<>();
     }
 
-//    public void trimOrchard(String gardenName, String date){
-//        for(int i = 0;i<gardens.size();i++){
-//            if(gardens.get(i).getGardenName().equals(gardenName)){
-//                if(gardens.get(i) instanceof  Orchard){
-//                    for(int plant = 0;plant<gardens.get(i).getPlantList().size();plant++){
-//                        if(gardens.get(i).getPlantList().get(plant) instanceof DeciduousTree){
-//                            ((DeciduousTree) gardens.get(i).getPlantList().get(plant)).trim(date);
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
-//
-//    }
-//
-//    public void harvestOrchard(String gardenName, String date){
-//        for(int i = 0;i<gardens.size();i++){
-//            if(gardens.get(i).getGardenName().equals(gardenName)){
-//                if(gardens.get(i) instanceof  Orchard){
-//                    for(int plant = 0;plant<gardens.get(i).getPlantList().size();plant++){
-//                        if(gardens.get(i).getPlantList().get(plant) instanceof DeciduousTree){
-//                            ((DeciduousTree) gardens.get(i).getPlantList().get(plant)).harvest(date);
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
-//
-//    }
-
-//    public void sprayConiferousGarden(String gardenName, String date){
-//        for(int i = 0;i<gardens.size();i++){
-//            if(gardens.get(i).getGardenName().equals(gardenName)){
-//                if(gardens.get(i) instanceof  ConiferousGarden){
-//                    for(int plant = 0;plant<gardens.get(i).getPlantList().size();plant++){
-//                        if(gardens.get(i).getPlantList().get(plant) instanceof ConiferousTree){
-//                            ((ConiferousTree) gardens.get(i).getPlantList().get(plant)).spray(date);
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
-//
-//    }
-
-//    public void waterFruitGarden(String gardenName, String date){
-//        for(int i = 0;i<gardens.size();i++){
-//            if(gardens.get(i).getGardenName().equals(gardenName)){
-//                if(gardens.get(i) instanceof  FruitGarden){
-//                    for(int plant = 0;plant<gardens.get(i).getPlantList().size();plant++){
-//                        if(gardens.get(i).getPlantList().get(plant) instanceof SingleFruit){
-//                            ((SingleFruit) gardens.get(i).getPlantList().get(plant)).water(date);
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
-//
-//    }
-
     public void createOrchardGarden(String name, GardenSize size) throws DuplicateGardenNameException {
 
         if (gardens.contains(new Orchard(name, size))) {
@@ -614,6 +550,10 @@ public class Application {
             if (gardens.contains(new Orchard(gardenName, GardenSize.LARGE))) {
                 for (Garden garden : gardens) {
                     if (garden.getGardenName().equals(gardenName)) {
+                        if (garden.getPlantList().size() == 0) {
+                            System.out.println("There are no plants in this garden");
+                            break;
+                        }
                         for (Plant plant : garden.getPlantList()) {
                             if (plant instanceof SingleFruit) {
                                 ((SingleFruit) plant).water();
