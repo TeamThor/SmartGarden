@@ -179,6 +179,11 @@ public class Application {
         int choice = 0;
         boolean isValidGarden = false;
         do {
+            if (gardens.size() < 1) {
+                System.out.println("\nThere are no gardens yet!");
+                System.out.println("You can create a garden by selecting the second option in the main menu!\n");
+                break;
+            }
             System.out.print("Enter Garden's Name: ");
             String gardenName = scan.nextLine();
             System.out.println();
@@ -348,7 +353,7 @@ public class Application {
     private void listAllGardens() {
         if (gardens.size() < 1) {
             System.out.println("\nThere are no gardens yet!");
-            System.out.println("You can create a garden by selecting the second option in the main menu!\n");
+            System.out.println("You can create a garden by selecting the first option in the main menu!\n");
         } else {
             for (int i = 0; i < gardens.size(); i++) {
                 System.out.println((i + 1) + ". " + gardens.get(i));
@@ -358,26 +363,33 @@ public class Application {
 
     private void removeGardenMenu() {
         Scanner in = new Scanner(System.in);
-        listAllGardens();
-        System.out.println((gardens.size() + 1) + ". Return to Main menu\n\n");
-        int choice;
-        while (true) {
-            System.out.print("Enter the № of the garden you want to remove -> ");
-            try {
-                choice = Integer.parseInt(in.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter a number!");
-                continue;
-            }
 
-            if (choice == gardens.size() + 1) {
-                break;
-            } else if (choice <= 0 || choice > gardens.size() + 1) {
-                System.out.println("Garden with № " + choice + " doesn't exist!");
-            } else {
-                System.out.println(gardens.get(choice - 1) + " has been removed.");
-                gardens.remove(choice - 1);
-                break;
+        if (gardens.size() < 1) {
+            System.out.println("\nThere are no gardens yet!");
+            System.out.println("You can create a garden by selecting the first option in the main menu!\n");
+
+        } else {
+            listAllGardens();
+            System.out.println((gardens.size() + 1) + ". Return to Main menu\n\n");
+            int choice;
+            while (true) {
+                System.out.print("Enter the № of the garden you want to remove -> ");
+                try {
+                    choice = Integer.parseInt(in.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter a number!");
+                    continue;
+                }
+
+                if (choice == gardens.size() + 1) {
+                    break;
+                } else if (choice <= 0 || choice > gardens.size() + 1) {
+                    System.out.println("Garden with № " + choice + " doesn't exist!");
+                } else {
+                    System.out.println(gardens.get(choice - 1) + " has been removed.");
+                    gardens.remove(choice - 1);
+                    break;
+                }
             }
         }
     }
@@ -393,6 +405,11 @@ public class Application {
                 "6. Exit\n\n"};
         int choice = 0;
         do {
+            if (gardens.size() < 1) {
+                System.out.println("\nThere are no gardens yet!");
+                System.out.println("You can create a garden by selecting the first option in the main menu!\n");
+                break;
+            }
             for (String option : optionsList) {
                 System.out.print(option);
             }
@@ -545,6 +562,12 @@ public class Application {
         Scanner in = new Scanner(System.in);
 
         while (true) {
+            if (gardens.size() < 1) {
+                System.out.println("\nThere are no gardens yet!");
+                System.out.println("You can create a garden by selecting the first option in the main menu!\n");
+                break;
+            }
+
             System.out.print("Enter the name of the garden you wish to maintain ->\n");
             String gardenName = in.nextLine();
             if (gardens.contains(new Orchard(gardenName, GardenSize.LARGE))) {
@@ -577,7 +600,9 @@ public class Application {
                 }
                 break;
             } else {
-                System.out.println("There isn't a garden with such name!\n");
+                System.out.println("\nThere isn't a garden with such name!");
+                System.out.println("You can check the existing gardens in the list below: \n");
+                listAllGardens();
             }
         }
     }
