@@ -6,8 +6,8 @@ import java.text.SimpleDateFormat;
 public class SingleFruit extends Fruit implements Waterable {
     private String waterDate;
 
-    public SingleFruit(String plantName, String plantingDate, int id) {
-        super(plantName, plantingDate, id);
+    public SingleFruit(String plantName, String date, int id) {
+        super(plantName, date, id);
         waterDate = "";
     }
     @Override

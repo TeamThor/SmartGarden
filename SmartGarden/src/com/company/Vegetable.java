@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.gardens.PlantDisplayable;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,8 +8,8 @@ public class Vegetable extends Plant implements Waterable {
     private String waterDate;
 
 
-    public Vegetable(String plantName, String plantingDate, int id) {
-        super(plantName, plantingDate, id);
+    public Vegetable(String plantName,String date, int id) {
+        super(plantName, date, id);
         waterDate = "";
     }
 

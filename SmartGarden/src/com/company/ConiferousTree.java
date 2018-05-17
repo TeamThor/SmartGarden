@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class ConiferousTree extends Tree implements Sprayable{
     private String sprayDate;
-    public ConiferousTree(String plantName, String plantingDate, int id, TreeHeight height) {
-        super(plantName, plantingDate, id, height);
+    public ConiferousTree(String plantName, String date, int id, TreeHeight height) {
+        super(plantName, date, id, height);
         sprayDate = "";
     }
 
@@ -21,7 +21,7 @@ public class ConiferousTree extends Tree implements Sprayable{
 
     @Override
     public String toString() {
-        if(sprayDate=="") {
+        if(sprayDate.equals("")) {
             return super.toString();
         }
         else return super.toString() + "spray date: "+ sprayDate;
